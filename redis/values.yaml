@@ -1,0 +1,18 @@
+auth:
+  enabled: false
+  # password: "mysecurepassword"
+
+master:
+  persistence:
+    enabled: false
+    size: 1Gi
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+
+replica:
+  replicaCount: 2
+  persistence:
+    enabled: false
+    size: 1Gi

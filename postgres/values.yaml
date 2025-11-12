@@ -1,0 +1,36 @@
+auth:
+  enablePostgresUser: true
+  existingSecret: "postgres-credentials"
+  secretKeys:
+    postgresPasswordKey: "postgres-password"
+    replicationPasswordKey: "replication-password"
+    userPasswordKey: "custom-user-password"
+  username: "hhi-user"
+  database: "hh-intelligence"
+  replicationUsername: "repl-user"
+
+primary:
+  persistence:
+    enabled: true
+    existingClaim: "postgres-pvc"
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "50m"
+    limits:
+      memory: "200Gi"
+      cpu: "100m"
+
+readReplicas:
+  replicaCount: 2
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "50m"
+    limits:
+      memory: "200Mi"
+      cpu: "100m"
+
+postgresql:
+  shared_buffers: "256MB"
+  max_connections: 100
