@@ -57,5 +57,5 @@ helm upgrade gitlab-runner gitlab/gitlab-runner -f gitlab-runner/runner-values.y
 
 ### 7. Обновить чарт
 ```sh
-helm delete --namespace gitlab-runner gitlab-runner
+helm uninstall gitlab-runner --namespace gitlab-runner
 ```
